@@ -1,0 +1,2990 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --navy: #0c1824;
+  --navy-2: #132535;
+  --green: #1e6b45;
+  --green-dark: #154b32;
+  --red: #d34a3e;
+  --cream: #f5f3ed;
+  --white: #ffffff;
+  --ink: #17212b;
+  --muted: #69737d;
+  --line: #dfe3df;
+  --shadow: 0 20px 60px rgba(12, 24, 36, .12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; }
+.container { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+.nav-wrap { min-height: 78px; display: flex; align-items: center; gap: 28px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+.brand-mark {
+  width: 42px; height: 42px; display: grid; place-items: center;
+  background: var(--navy); color: white; font-weight: 800; border-radius: 8px;
+}
+.brand strong, .brand small { display: block; line-height: 1.05; }
+.brand strong { font-size: 15px; letter-spacing: .06em; }
+.brand small { margin-top: 5px; font-size: 9px; letter-spacing: .14em; color: var(--green); font-weight: 800; }
+
+.nav { display: flex; gap: 25px; }
+.nav a { text-decoration: none; font-size: 14px; font-weight: 600; color: #36414b; }
+.nav a:hover { color: var(--green); }
+.nav-call {
+  background: var(--green); color: white; text-decoration: none; padding: 11px 18px;
+  border-radius: 6px; font-weight: 700; font-size: 13px;
+}
+.menu-toggle { display: none; border: 0; background: none; font-size: 26px; }
+
+.hero {
+  position: relative; overflow: hidden; background: var(--navy); color: white;
+  min-height: 650px; display: flex; align-items: center;
+}
+.hero-pattern {
+  position: absolute; inset: 0; opacity: .17;
+  background-image: linear-gradient(135deg, transparent 0 49%, rgba(255,255,255,.12) 50% 51%, transparent 52%),
+                    linear-gradient(45deg, transparent 0 49%, rgba(255,255,255,.08) 50% 51%, transparent 52%);
+  background-size: 90px 90px;
+}
+.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; padding: 90px 0; }
+.eyebrow { margin: 0 0 13px; color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .15em; }
+.eyebrow-light { color: #9bd0b1; }
+h1, h2, h3 { margin-top: 0; }
+h1, h2 { font-family: "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; letter-spacing: -.02em; }
+h1 { font-size: clamp(58px, 7vw, 88px); line-height: .9; max-width: 680px; margin-bottom: 25px; }
+h1 span { color: #8fd0a9; }
+.hero-text { max-width: 590px; color: #c8d2da; font-size: 17px; }
+.hero-actions { display: flex; gap: 12px; margin: 30px 0 24px; }
+.btn { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 0 21px; border-radius: 5px; border: 1px solid transparent; text-decoration: none; font-weight: 800; font-size: 13px; cursor: pointer; }
+.btn-primary { background: var(--green); color: white; }
+.btn-primary:hover { background: #2b8054; }
+.btn-outline { border-color: rgba(255,255,255,.35); color: white; }
+.btn-outline:hover { background: rgba(255,255,255,.08); }
+.btn-light { background: white; color: var(--navy); }
+.hero-note { color: #9eabb4; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+.dot { width: 7px; height: 7px; background: #8fd0a9; border-radius: 50%; display: inline-block; }
+
+.machine-card {
+  background: linear-gradient(145deg, #f5f3ed, #dfe4de);
+  color: var(--navy); min-height: 410px; border-radius: 8px; padding: 22px;
+  box-shadow: var(--shadow); transform: rotate(1deg);
+}
+.machine-top, .machine-bottom { display: flex; justify-content: space-between; gap: 20px; }
+.machine-top { font-size: 10px; letter-spacing: .12em; font-weight: 800; color: #63706d; }
+.tractor-illustration { height: 280px; position: relative; margin: 10px 0; }
+.tractor-body { position: absolute; width: 215px; height: 88px; background: var(--green); left: 65px; top: 125px; border-radius: 12px 22px 8px 8px; transform: skew(-5deg); }
+.tractor-hood { position: absolute; width: 90px; height: 45px; background: var(--red); left: 248px; top: 145px; border-radius: 8px 18px 7px 7px; }
+.tractor-cabin { position: absolute; width: 95px; height: 90px; border: 10px solid var(--navy); border-bottom: 13px solid var(--navy); left: 105px; top: 55px; border-radius: 8px 8px 2px 2px; }
+.tractor-exhaust { position: absolute; width: 7px; height: 70px; background: var(--navy); left: 218px; top: 35px; border-radius: 6px; }
+.wheel { position: absolute; border-radius: 50%; background: var(--navy); border: 14px solid #2e3f49; box-shadow: inset 0 0 0 5px #68757b; }
+.wheel-large { width: 105px; height: 105px; left: 75px; top: 165px; }
+.wheel-small { width: 68px; height: 68px; left: 248px; top: 178px; }
+.machine-bottom { border-top: 1px solid #b8c0b9; padding-top: 17px; }
+.machine-bottom div { display: grid; gap: 2px; }
+.machine-bottom strong { font-size: 12px; }
+.machine-bottom span { font-size: 10px; color: #6c7772; }
+
+.trust-strip { background: var(--green); color: white; }
+.trust-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+.trust-grid div { padding: 24px 20px; border-right: 1px solid rgba(255,255,255,.18); }
+.trust-grid div:last-child { border-right: 0; }
+.trust-grid strong, .trust-grid span { display: block; }
+.trust-grid strong { font-size: 13px; }
+.trust-grid span { font-size: 11px; color: #cce8d8; }
+
+.section { padding: 100px 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; }
+h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
+.two-col p { color: var(--muted); font-size: 16px; }
+.two-col strong { color: var(--ink); }
+
+.section-dark { background: var(--navy); color: white; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 42px; }
+.section-heading > p { max-width: 410px; color: #aab7bf; font-size: 14px; }
+.parts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: #31404a; border: 1px solid #31404a; }
+.part-card { background: var(--navy); padding: 32px; min-height: 205px; }
+.part-icon { color: #8fd0a9; font-family: "Barlow Condensed"; font-size: 30px; }
+.part-card h3 { font-family: "Barlow Condensed"; text-transform: uppercase; font-size: 27px; margin: 13px 0 8px; }
+.part-card p { color: #9eabb4; font-size: 13px; }
+.parts-cta { margin-top: 35px; padding: 22px; background: #162d3e; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.parts-cta strong, .parts-cta span { display: block; }
+.parts-cta span { color: #9eabb4; font-size: 12px; margin-top: 3px; }
+
+.centered { align-items: center; }
+.brands-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.brand-tile { min-height: 125px; padding: 25px; border: 1px solid var(--line); background: #fafbf9; display: flex; flex-direction: column; justify-content: center; }
+.brand-tile strong { font-family: "Barlow Condensed"; font-size: 28px; }
+.brand-tile span { color: var(--muted); font-size: 11px; }
+.more-brands { text-align: center; margin-top: 28px; font-size: 13px; color: var(--muted); }
+.more-brands a { color: var(--green); font-weight: 700; }
+
+.why-section { background: var(--cream); }
+.why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.why-grid article { background: white; padding: 28px; min-height: 230px; border-top: 4px solid var(--green); }
+.why-grid span { font-family: "Barlow Condensed"; color: var(--green); font-size: 28px; }
+.why-grid h3 { font-family: "Barlow Condensed"; text-transform: uppercase; font-size: 25px; margin: 12px 0 8px; }
+.why-grid p { color: var(--muted); font-size: 13px; }
+
+.request-section { background: var(--green-dark); color: white; padding: 90px 0; }
+.request-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: start; }
+.request-section h2 { max-width: 500px; }
+.request-section p { color: #bed7c8; }
+.request-form { background: white; color: var(--ink); padding: 32px; border-radius: 5px; }
+.request-form label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 15px; }
+.request-form input, .request-form textarea {
+  width: 100%; margin-top: 7px; padding: 12px 13px; border: 1px solid #d5ddd8;
+  border-radius: 4px; font: inherit; font-size: 13px; outline: none;
+}
+.request-form input:focus, .request-form textarea:focus { border-color: var(--green); }
+.form-note { color: #78847e !important; font-size: 10px !important; margin: 12px 0 0; }
+
+.contact-section { padding: 95px 0; }
+.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; }
+.contact-intro { max-width: 500px; color: var(--muted); }
+.contact-card { border-top: 5px solid var(--red); background: #f7f8f6; padding: 32px; }
+.contact-row { border-bottom: 1px solid #dce1dd; padding: 18px 0; display: grid; gap: 3px; }
+.contact-row:last-child { border-bottom: 0; }
+.contact-label { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.contact-row strong, .contact-row a { font-size: 14px; text-decoration: none; }
+.contact-row a:hover { color: var(--green); }
+
+.footer { background: #071019; color: white; padding: 30px 0; }
+.footer-wrap { display: flex; justify-content: space-between; gap: 30px; align-items: center; }
+.footer strong, .footer span { display: block; }
+.footer strong { font-size: 12px; }
+.footer span, .footer p { color: #7f8c96; font-size: 10px; margin: 3px 0 0; }
+
+@media (max-width: 900px) {
+  .nav { display: none; position: absolute; top: 78px; left: 0; right: 0; background: white; padding: 20px; border-bottom: 1px solid var(--line); flex-direction: column; }
+  .nav.open { display: flex; }
+  .menu-toggle { display: block; order: 3; }
+  .nav-call { display: none; }
+  .hero-grid, .two-col, .request-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }
+  .hero { min-height: auto; }
+  .hero-grid { padding: 70px 0; }
+  .machine-card { max-width: 620px; width: 100%; margin: auto; }
+  .parts-grid { grid-template-columns: repeat(2,1fr); }
+  .why-grid { grid-template-columns: repeat(2,1fr); }
+  .section-heading { align-items: start; flex-direction: column; }
+}
+
+@media (max-width: 620px) {
+  .container { width: min(100% - 28px, 1140px); }
+  .brand strong { font-size: 12px; }
+  h1 { font-size: 56px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .trust-grid, .parts-grid, .brands-grid, .why-grid { grid-template-columns: 1fr; }
+  .trust-grid div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+  .parts-cta, .footer-wrap { align-items: flex-start; flex-direction: column; }
+  .section { padding: 70px 0; }
+  .machine-card { transform: none; }
+  .tractor-body { left: 12%; }
+  .tractor-cabin { left: 20%; }
+  .wheel-large { left: 15%; }
+  .tractor-hood { left: 55%; }
+  .wheel-small { left: 55%; }
+  .tractor-exhaust { left: 46%; }
+}
+/* =========================================
+   NEW HERO DESIGN
+   ========================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(46, 155, 99, 0.22), transparent 30%),
+    linear-gradient(135deg, #07131d 0%, #0b1d29 55%, #102d25 100%);
+  color: #ffffff;
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(45deg, transparent 48%, #ffffff 49%, transparent 50%),
+    linear-gradient(-45deg, transparent 48%, #ffffff 49%, transparent 50%);
+  background-size: 70px 70px;
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: 20%;
+  top: 10%;
+  border-radius: 50%;
+  background: rgba(54, 176, 111, 0.14);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 70px;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
+/* ---------- HERO TEXT ---------- */
+
+.hero-copy {
+  max-width: 650px;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding: 8px 14px;
+  border: 1px solid rgba(139, 215, 170, 0.35);
+  border-radius: 50px;
+  background: rgba(139, 215, 170, 0.08);
+  color: #91d8ad;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.hero-label-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8bd5a9;
+  box-shadow: 0 0 0 5px rgba(139, 213, 169, 0.12);
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 680px;
+  font-size: clamp(52px, 6vw, 86px);
+  line-height: 0.95;
+  letter-spacing: -3px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero h1 span {
+  display: block;
+  color: #8bd5a9;
+}
+
+.hero-text {
+  max-width: 600px;
+  margin: 28px 0 0;
+  color: #d4dee5;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.hero-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-actions .btn-primary span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+/* ---------- BRAND LIST ---------- */
+
+.hero-brands {
+  margin-top: 42px;
+}
+
+.hero-brands > span {
+  display: block;
+  margin-bottom: 12px;
+  color: #91a5b2;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brand-list span {
+  padding: 7px 11px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 5px;
+  background: rgba(255,255,255,0.04);
+  color: #e6edf1;
+  font-size: 12px;
+}
+
+
+/* ---------- RIGHT VISUAL ---------- */
+
+.hero-visual {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-visual img {
+  width: min(100%, 520px);
+  height: 500px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  transform: rotate(2deg);
+}
+
+.machine-card {
+  position: relative;
+  width: min(100%, 520px);
+  padding: 26px;
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #f7f6ee, #dfe5df);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.35),
+    0 10px 30px rgba(0,0,0,0.15);
+  transform: rotate(0deg);
+}
+
+.machine-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #52636d;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+.tractor-illustration {
+  position: relative;
+  height: 250px;
+  margin: 20px 0;
+}
+
+
+/* ---------- TRACTOR ---------- */
+
+.tractor-body {
+  position: absolute;
+  left: 18%;
+  bottom: 58px;
+  width: 55%;
+  height: 90px;
+  border-radius: 12px 24px 12px 12px;
+  background: linear-gradient(145deg, #2c9960, #176d43);
+  box-shadow: inset 0 -10px 0 rgba(0,0,0,0.1);
+}
+
+.tractor-hood {
+  position: absolute;
+  right: 10%;
+  bottom: 95px;
+  width: 26%;
+  height: 65px;
+  border-radius: 12px;
+  background: #d84e43;
+}
+
+.tractor-cabin {
+  position: absolute;
+  left: 27%;
+  bottom: 145px;
+  width: 30%;
+  height: 85px;
+  border: 9px solid #0d1c27;
+  border-bottom-width: 5px;
+  border-radius: 5px;
+  background: rgba(116, 151, 166, 0.18);
+}
+
+.tractor-exhaust {
+  position: absolute;
+  left: 53%;
+  bottom: 215px;
+  width: 7px;
+  height: 65px;
+  border-radius: 10px;
+  background: #0d1c27;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 28px;
+  border-radius: 50%;
+  border: 10px solid #30434e;
+  background: #091720;
+  box-shadow: inset 0 0 0 6px #6c7b83;
+}
+
+.wheel-large {
+  left: 18%;
+  width: 105px;
+  height: 105px;
+}
+
+.wheel-small {
+  right: 14%;
+  width: 72px;
+  height: 72px;
+  bottom: 40px;
+}
+
+
+/* ---------- MACHINE INFORMATION ---------- */
+
+.machine-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding-top: 18px;
+  border-top: 1px solid #bcc6c0;
+}
+
+.machine-info-item {
+  display: flex;
+  gap: 10px;
+}
+
+.info-number {
+  color: #278151;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.machine-info-item strong {
+  display: block;
+  color: #17252e;
+  font-size: 11px;
+}
+
+.machine-info-item small {
+  display: block;
+  margin-top: 4px;
+  color: #66747a;
+  font-size: 10px;
+}
+
+
+/* ---------- FLOATING CARD ---------- */
+
+.visual-badge {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 4;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #17252e;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.visual-badge strong {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.visual-badge span {
+  display: block;
+  margin-top: 4px;
+  color: #278151;
+  font-size: 10px;
+}
+
+.floating-card {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 17px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #16252e;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+.floating-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #278151;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.floating-card strong {
+  display: block;
+  font-size: 12px;
+}
+
+.floating-card small {
+  display: block;
+  margin-top: 3px;
+  color: #6a777d;
+  font-size: 10px;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 900px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    min-height: 460px;
+  }
+
+  .machine-card {
+    transform: rotate(0);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-grid {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+  }
+
+  .brand-list {
+    gap: 6px;
+  }
+
+  .machine-card {
+    padding: 18px;
+  }
+
+  .tractor-illustration {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  .machine-info {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-card {
+    right: 0;
+    bottom: 10px;
+  }
+
+}
+/* ---------- HERO TRACTOR IMAGE ---------- */
+
+.tractor-illustration {
+  position: relative;
+  height: 270px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.tractor-illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+  transform: none;
+}
+/* ---------- FIX NEED A PART CARD ---------- */
+
+.floating-card {
+  right: 10px;
+  bottom: -55px;
+}
+/* =========================================
+   ABOUT SECTION IMPROVEMENT
+   ========================================= */
+
+#about {
+  background: #ffffff;
+}
+
+#about .two-col {
+  align-items: center;
+  gap: 80px;
+}
+
+#about .eyebrow {
+  margin-bottom: 16px;
+}
+
+#about h2 {
+  max-width: 620px;
+  font-size: clamp(44px, 5vw, 64px);
+  line-height: 0.95;
+  margin-bottom: 28px;
+  color: var(--navy);
+}
+
+#about .two-col p {
+  max-width: 620px;
+  margin-bottom: 18px;
+  color: #68747c;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+#about .two-col p strong {
+  color: var(--navy);
+}
+/* =========================================
+   ABOUT SECTION
+   ========================================= */
+
+.about-section {
+  background: #ffffff;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.about-heading {
+  position: relative;
+}
+
+.about-heading h2 {
+  max-width: 560px;
+  margin-bottom: 25px;
+  color: var(--navy);
+  font-size: clamp(44px, 5vw, 64px);
+  line-height: 0.95;
+}
+
+.about-line {
+  width: 70px;
+  height: 4px;
+  background: var(--green);
+  margin-top: 25px;
+}
+
+.about-content {
+  padding-top: 8px;
+}
+
+.about-content p {
+  max-width: 620px;
+  margin: 0 0 20px;
+  color: #69737d;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.about-content p strong {
+  color: var(--navy);
+}
+
+.about-intro {
+  font-size: 18px !important;
+  color: #3d4b55 !important;
+}
+
+.about-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.about-detail {
+  padding: 18px 14px;
+  border-top: 3px solid var(--green);
+  background: #f5f7f4;
+}
+
+.about-number {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.about-detail strong {
+  display: block;
+  color: var(--navy);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.about-detail small {
+  display: block;
+  margin-top: 5px;
+  color: #748078;
+  font-size: 10px;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-details {
+    grid-template-columns: 1fr;
+  }
+
+}
+/* =========================================
+   SPARE PARTS SECTION IMPROVEMENT
+   ========================================= */
+
+#parts {
+  background:
+    linear-gradient(135deg, #07131d 0%, #0b1d29 55%, #102d25 100%);
+}
+
+#parts .section-heading {
+  margin-bottom: 48px;
+}
+
+#parts .section-heading h2 {
+  max-width: 650px;
+  margin-bottom: 0;
+  color: #ffffff;
+}
+
+#parts .section-heading > p {
+  max-width: 360px;
+  line-height: 1.7;
+}
+
+/* Parts cards */
+
+#parts .parts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  background: transparent;
+  border: 0;
+}
+
+#parts .part-card {
+  position: relative;
+  min-height: 230px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.035);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+              background 0.25s ease;
+  overflow: hidden;
+}
+
+/* Small green accent */
+
+#parts .part-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 3px;
+  background: #8bd5a9;
+}
+
+#parts .part-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139,213,169,0.35);
+  background: rgba(255,255,255,0.07);
+}
+
+#parts .part-icon {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #8bd5a9;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#parts .part-card h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 29px;
+  line-height: 1;
+}
+
+#parts .part-card p {
+  max-width: 300px;
+  margin: 0;
+  color: #9eabb4;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Request strip */
+
+#parts .parts-cta {
+  margin-top: 30px;
+  padding: 25px 28px;
+  border: 1px solid rgba(139,213,169,0.15);
+  background: rgba(30,107,69,0.18);
+}
+
+#parts .parts-cta strong {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+#parts .parts-cta span {
+  color: #aebdc5;
+  line-height: 1.5;
+}
+
+#parts .parts-cta .btn-light {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#parts .parts-cta .btn-light:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  #parts .parts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  #parts .parts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #parts .part-card {
+    min-height: 200px;
+  }
+
+  #parts .parts-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+/* =========================================================
+   VAST TRACTORS SPARES
+   BRANDS SECTION - FINAL DESIGN
+   ========================================================= */
+
+#brands {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+/* ---------------------------------------------------------
+   SECTION BACKGROUND DETAIL
+   --------------------------------------------------------- */
+
+#brands::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: -100px;
+  top: -100px;
+  border-radius: 50%;
+  border: 45px solid rgba(30, 107, 69, 0.045);
+  pointer-events: none;
+}
+
+#brands .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   HEADING
+   --------------------------------------------------------- */
+
+#brands .brands-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+  gap: 65px;
+  align-items: center;
+  margin-bottom: 42px;
+}
+
+#brands .brands-heading h2 {
+  max-width: 650px;
+  margin: 0;
+  color: var(--navy);
+}
+
+
+/* ---------------------------------------------------------
+   TOP INFORMATION CARD
+   --------------------------------------------------------- */
+
+#brands .brands-heading > p {
+  max-width: 420px;
+  margin: 0;
+  padding: 22px 24px;
+
+  background: #ffffff;
+  color: #26372e;
+
+  border: 1px solid #d2ddd6;
+  border-left: 6px solid #1e6b45;
+  border-radius: 5px;
+
+  box-shadow: 0 10px 25px rgba(12, 24, 36, 0.09);
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+#brands .brands-heading > p::before {
+  content: "SUPPLY INFORMATION";
+
+  display: block;
+  margin-bottom: 9px;
+
+  color: #1e6b45;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+
+/* ---------------------------------------------------------
+   BRAND GRID
+   --------------------------------------------------------- */
+
+#brands .brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  border: none;
+  background: transparent;
+}
+
+
+/* ---------------------------------------------------------
+   BRAND CARDS
+   --------------------------------------------------------- */
+
+#brands .brand-tile {
+  position: relative;
+
+  min-height: 190px;
+  padding: 27px;
+
+  display: flex;
+  align-items: flex-end;
+
+  overflow: hidden;
+
+  border: none;
+  border-radius: 5px;
+
+  box-shadow: 0 10px 28px rgba(12, 24, 36, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* CARD BACKGROUND COLOURS */
+/* NATURAL AGRICULTURAL CARD COLOURS */
+#brands .brand-tile:nth-child(1) {
+  background: #e4eee5;
+}
+
+#brands .brand-tile:nth-child(2) {
+  background: #eee8d8;
+}
+
+#brands .brand-tile:nth-child(3) {
+  background: #e3e9e5;
+}
+
+#brands .brand-tile:nth-child(4) {
+  background: #e8eee7;
+}
+
+#brands .brand-tile:nth-child(5) {
+  background: #eee9dc;
+}
+
+#brands .brand-tile:nth-child(6) {
+  background: #e2ece5;
+}
+#brands .brand-tile strong {
+  display: block;
+  color: #1e6b45 !important;
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 0.95;
+}
+/* ---------------------------------------------------------
+   TOP GREEN STRIPE
+   --------------------------------------------------------- */
+
+#brands .brand-tile::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: #1e6b45;
+}
+
+
+/* ---------------------------------------------------------
+   NUMBERS
+   --------------------------------------------------------- */
+
+#brands .brand-number {
+  position: absolute;
+
+  top: 12px;
+  right: 17px;
+
+  z-index: 1;
+
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+
+  color: rgba(23, 33, 43, 0.11);
+
+  letter-spacing: -3px;
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   BRAND CONTENT
+   --------------------------------------------------------- */
+
+#brands .brand-tile > div {
+  position: relative;
+  z-index: 3;
+
+  max-width: 92%;
+}
+
+
+/* COMPANY NAME */
+
+#brands .brand-tile > div::before {
+  content: "VAST TRACTORS SPARES";
+
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #53635a;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+
+/* ---------------------------------------------------------
+   ALL BRAND NAMES = SAME GREEN
+   --------------------------------------------------------- */
+
+#brands .brand-tile strong {
+  display: block;
+
+  color: #1e6b45 !important;
+
+  font-family: "Barlow Condensed", Arial, sans-serif;
+
+  font-size: 36px;
+  font-weight: 800;
+
+  line-height: 0.95;
+}
+
+
+/* BRAND DESCRIPTION */
+
+#brands .brand-tile > div > span {
+  display: block;
+
+  margin-top: 9px;
+
+  color: #435b4d;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+   --------------------------------------------------------- */
+
+#brands .brand-tile:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 38px rgba(12, 24, 36, 0.13);
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM "NEED A PART?" CARD
+   --------------------------------------------------------- */
+
+#brands .brands-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-top: 28px;
+
+  padding: 22px 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #d2ddd6;
+  border-left: 6px solid #1e6b45;
+
+  border-radius: 5px;
+
+  box-shadow: 0 10px 25px rgba(12, 24, 36, 0.09);
+}
+
+
+/* LEFT SIDE OF BOTTOM CARD */
+
+#brands .brands-footer > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#brands .brands-footer-line {
+  display: block;
+
+  width: 4px;
+  height: 38px;
+
+  background: #1e6b45;
+}
+
+
+/* BOTTOM MESSAGE */
+
+#brands .brands-footer p {
+  margin: 0;
+
+  color: #17212b;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+#brands .brands-footer strong {
+  color: #1e6b45;
+
+  font-weight: 900;
+}
+
+
+/* CONTACT SALES BUTTON */
+
+#brands .brands-footer .btn-light {
+  flex-shrink: 0;
+
+  background: #1e6b45;
+
+  color: #ffffff;
+
+  border: none;
+
+  font-weight: 800;
+}
+
+#brands .brands-footer .btn-light:hover {
+  background: #154b32;
+  color: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  #brands .brands-heading {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  #brands .brands-heading > p {
+    max-width: 100%;
+  }
+
+  #brands .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 620px) {
+
+  #brands .brands-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #brands .brand-tile {
+    min-height: 175px;
+  }
+
+  #brands .brand-tile strong {
+    font-size: 32px;
+  }
+
+  #brands .brand-number {
+    font-size: 65px;
+  }
+
+  #brands .brands-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #brands .brands-footer .btn-light {
+    width: 100%;
+  }
+}
+/* =========================================================
+   WHY VAST TRACTORS SPARES - ORIGINAL STYLE
+   ========================================================= */
+
+.why-section {
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      #102d25 0%,
+      #f7f8f5 38%,
+      #ffffff 100%
+    );
+  color: var(--navy);
+}
+
+.why-section .section-heading h2 {
+  color: #ffffff;
+}
+
+.why-section .section-heading h2 {
+  max-width: 650px;
+  margin-bottom: 0;
+  color: var(--navy);
+}
+.why-section .eyebrow {
+  color: #8bd5a9;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid #dfe5df;
+  border-left: 1px solid #dfe5df;
+}
+
+.why-grid article {
+  position: relative;
+  min-height: 230px;
+  padding: 28px 25px;
+  border-right: 1px solid #dfe5df;
+  border-bottom: 1px solid #dfe5df;
+  background: #ffffff;
+}
+
+.why-grid article > span {
+  display: block;
+  margin-bottom: 45px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.why-grid article h3 {
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-size: 24px;
+  line-height: 1.05;
+}
+
+.why-grid article p {
+  margin: 0;
+  color: #69737d;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* SUBTLE TOP ACCENT */
+.why-grid article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 4px;
+  background: var(--green);
+}
+
+@media (max-width: 900px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid article {
+    min-height: 200px;
+  }
+}
+/* BRAND LOGOS AS FULL-CARD BACKGROUNDS */
+.brands-grid .brand-tile {
+  position: relative;
+  overflow: hidden;
+  min-height: 190px;
+  display: flex;
+  align-items: flex-end;
+  isolation: isolate;
+}
+
+/* Make each logo cover the entire card */
+.brand-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.brand-content img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* CLICKABLE SPARE PARTS CARDS */
+#parts .part-card {
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#parts .part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* GALLERY BACKDROP */
+.parts-gallery-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 24px;
+  background: rgba(5, 15, 12, 0.88);
+  overflow-y: auto;
+}
+
+.parts-gallery-modal.is-open {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.parts-gallery-panel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 32px;
+  background: #f7f8f5;
+  border-radius: 10px;
+}
+
+.parts-gallery-panel h2 {
+  color: #17212b;
+  margin-bottom: 8px;
+}
+
+.parts-gallery-panel p {
+  color: #53635a;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  border: 0;
+  background: none;
+  color: #17212b;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.parts-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.parts-gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+@media (max-width: 650px) {
+  .parts-gallery-panel {
+    padding: 24px 16px;
+  }
+
+  .parts-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .parts-gallery-grid img {
+    height: 150px;
+  }
+}
+
+/* SPARE PARTS CARD BACKGROUNDS */
+#parts .part-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #17251f;
+  background-image: var(--part-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#parts .part-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 15, 12, 0.12) 0%,
+    rgba(5, 15, 12, 0.82) 100%
+  );
+}
+
+#parts .part-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+#parts .part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+}
+
+/* GALLERY WINDOW */
+.parts-gallery-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 24px;
+  background: rgba(5, 15, 12, 0.9);
+  overflow-y: auto;
+}
+
+.parts-gallery-modal.is-open {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.parts-gallery-panel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 32px;
+  border-radius: 12px;
+  background: #f7f8f5;
+}
+
+.parts-gallery-panel h2 {
+  color: #17251f;
+  margin: 12px 0 8px;
+}
+
+.parts-gallery-panel p {
+  color: #53635a;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  border: 0;
+  background: transparent;
+  color: #17251f;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.parts-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.parts-gallery-grid img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.parts-gallery-grid img.image-error {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  .parts-gallery-panel {
+    padding: 26px 16px;
+  }
+
+  .parts-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .parts-gallery-grid img {
+    height: 150px;
+  }
+}
+
+/* =========================================
+   VAST TRACTORS SPARES - PREMIUM PART CARDS
+   ========================================= */
+
+#parts .part-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  /* Brand colours when an image is unavailable */
+  background-color: #10251d;
+  background-image: var(--part-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+
+  /* Smooth, professional movement */
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Dark gradient makes the text easy to read */
+#parts .part-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 19, 29, 0.12) 0%,
+      rgba(7, 19, 29, 0.48) 38%,
+      rgba(7, 19, 29, 0.96) 100%
+    );
+
+  transition: background 0.3s ease;
+}
+
+/* Subtle green highlight at the bottom */
+#parts .part-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  z-index: 1;
+
+  background: #1e6b45;
+  pointer-events: none;
+
+  transform: scaleX(0.35);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Keep numbers, headings and descriptions above the image */
+#parts .part-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Category number */
+#parts .part-card .part-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 42px;
+  min-height: 38px;
+  padding: 7px 10px;
+
+  color: #ffffff;
+  background: rgba(30, 107, 69, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Clear white headings */
+#parts .part-card h3 {
+  position: relative;
+  z-index: 2;
+
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Readable descriptions */
+#parts .part-card p {
+  position: relative;
+  z-index: 2;
+
+  color: #f1f4f1;
+  line-height: 1.65;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Hover effect for computers */
+#parts .part-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(91, 174, 121, 0.8);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+#parts .part-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Slightly stronger overlay on hover */
+#parts .part-card:hover::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 19, 29, 0.22) 0%,
+      rgba(7, 19, 29, 0.56) 38%,
+      rgba(7, 19, 29, 0.97) 100%
+    );
+}
+
+/* Keyboard accessibility */
+#parts .part-card:focus-visible {
+  outline: 3px solid #75c995;
+  outline-offset: 4px;
+}
+
+/* Reduce animation for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  #parts .part-card,
+  #parts .part-card::before,
+  #parts .part-card::after {
+    transition: none;
+  }
+}
+
+/* =========================================
+   SPARE PARTS GALLERY - REFINED DESIGN
+   ========================================= */
+
+.parts-gallery-modal {
+  background: rgba(4, 13, 19, 0.88);
+  backdrop-filter: blur(7px);
+}
+
+.parts-gallery-panel {
+  background: #f5f3ed;
+  border: 1px solid rgba(30, 107, 69, 0.22);
+  border-radius: 14px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+/* Gallery heading */
+.parts-gallery-panel .eyebrow {
+  color: #1e6b45;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.parts-gallery-panel h2 {
+  color: #10251d;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* Green accent below the heading */
+.parts-gallery-panel h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 12px;
+  background: #1e6b45;
+  border-radius: 3px;
+}
+
+.parts-gallery-panel #galleryDescription {
+  color: #53635a;
+  line-height: 1.7;
+}
+
+/* Individual image tiles */
+.parts-gallery-grid img {
+  min-width: 0;
+  height: 230px;
+  padding: 12px;
+
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid #e1e5df;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 14px rgba(16, 37, 29, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.parts-gallery-grid img:hover {
+  transform: translateY(-3px);
+  border-color: #1e6b45;
+  box-shadow: 0 10px 24px rgba(16, 37, 29, 0.12);
+}
+
+/* Close button */
+.parts-gallery-panel .gallery-close {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e8eee8;
+  color: #10251d;
+  line-height: 1;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.parts-gallery-panel .gallery-close:hover {
+  background: #1e6b45;
+  color: #ffffff;
+}
+
+/* Gallery layout on small screens */
+@media (max-width: 650px) {
+  .parts-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .parts-gallery-grid img {
+    height: 155px;
+    padding: 7px;
+  }
+}
+
+/* ==========================================
+   BRANDS WE SUPPORT — EDITORIAL SHOWCASE
+   ========================================== */
+
+.brands-section {
+  padding: 80px 0;
+  background: #f5f3ed;
+  color: #102c25;
+  overflow: hidden;
+}
+
+.brands-showcase {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(0, 1.32fr)
+    minmax(180px, 0.58fr);
+  align-items: center;
+  gap: 32px;
+
+  width: min(100% - 48px, 1600px);
+  margin: 0 auto;
+}
+
+/* LEFT INTRODUCTION */
+
+.brands-intro {
+  min-width: 0;
+  padding: 12px 0;
+}
+
+.brands-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 20px;
+
+  color: #1e6b45;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.brands-eyebrow span {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #1e6b45;
+}
+
+.brands-intro h2 {
+  margin: 0 0 20px;
+  color: #102c25;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 3.1vw, 54px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -1.3px;
+}
+
+.brands-description {
+  max-width: 490px;
+  margin: 0;
+
+  color: #62736d;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.brands-divider {
+  width: 100%;
+  height: 1px;
+  margin: 25px 0 22px;
+  background: #cbd2c9;
+}
+
+/* SERVICE BENEFITS */
+
+.brands-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.brands-benefit {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 38px;
+
+  color: #1e6b45;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.brands-benefit p {
+  margin: 0;
+  color: #263d35;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+/* GREEN BUTTON */
+
+.brands-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  padding: 14px 22px;
+  border: 1px solid #1e6b45;
+  border-radius: 7px;
+
+  background: #07583c;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.brands-button span {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.brands-button:hover {
+  background: #0c392b;
+  transform: translateY(-2px);
+}
+
+/* CENTRE LOGO GRID */
+
+.brands-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px 14px;
+  min-width: 0;
+  scroll-margin-top: 100px;
+}
+
+.brands-logo-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  min-height: 112px;
+  padding: 15px;
+
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #e4e5dd;
+  border-radius: 9px;
+  box-shadow: 0 5px 16px rgba(16, 44, 37, 0.045);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.brands-logo-tile img {
+  display: block;
+  width: 100%;
+  max-width: 145px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.brands-logo-tile:hover {
+  transform: translateY(-4px);
+  border-color: #b9cfbd;
+  box-shadow: 0 10px 24px rgba(16, 44, 37, 0.1);
+}
+
+/* RIGHT-SIDE TRACTOR IMAGE WITH ANGLED EDGE */
+
+.brands-tractor {
+  position: relative;
+  align-self: stretch;
+  min-height: 440px;
+  min-width: 0;
+  overflow: hidden;
+
+  clip-path: polygon(38% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.brands-tractor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    rgba(30, 107, 69, 0.08),
+    transparent 55%,
+    rgba(7, 19, 29, 0.12)
+  );
+}
+
+.brands-tractor img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  object-fit: cover;
+  object-position: 58% center;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .brands-showcase {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1.1fr);
+    gap: 28px;
+  }
+
+  .brands-tractor {
+    display: none;
+  }
+
+  .brands-intro h2 {
+    font-size: clamp(32px, 4vw, 46px);
+  }
+
+  .brands-logo-tile {
+    min-height: 100px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .brands-section {
+    padding: 54px 0;
+  }
+
+  .brands-showcase {
+    width: calc(100% - 36px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .brands-intro h2 {
+    font-size: clamp(32px, 9vw, 43px);
+    letter-spacing: -0.8px;
+  }
+
+  .brands-description {
+    font-size: 15px;
+  }
+
+  .brands-benefits {
+    gap: 8px;
+  }
+
+  .brands-benefit {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .brands-benefit p {
+    font-size: 11px;
+  }
+
+  .brands-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .brands-logo-tile {
+    min-height: 100px;
+    padding: 12px;
+  }
+
+  .brands-logo-tile img {
+    height: 58px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-button,
+  .brands-logo-tile {
+    transition: none;
+  }
+}
+
+/* =========================================
+   VAST TRACTORS SPARES
+   SMOOTH WEBSITE ANIMATIONS
+   ========================================= */
+
+/* 1. Smooth scrolling between website sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 2. Hero text enters gently */
+.hero-copy .eyebrow {
+  animation: fadeSlideUp 0.7s ease-out both;
+  animation-delay: 0.1s;
+}
+
+.hero-copy h1 {
+  animation: fadeSlideUp 0.8s ease-out both;
+  animation-delay: 0.2s;
+}
+
+.hero-copy > p:not(.eyebrow) {
+  animation: fadeSlideUp 0.8s ease-out both;
+  animation-delay: 0.3s;
+}
+
+/* 3. Hero buttons appear smoothly */
+.hero-copy .btn,
+.hero-copy a {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.hero-copy .btn:hover,
+.hero-copy a:hover {
+  transform: translateY(-3px);
+}
+
+/* 4. Hero visual appears gently */
+.hero-visual {
+  animation: fadeSlideIn 1s ease-out both;
+  animation-delay: 0.25s;
+}
+
+/* 5. Interactive cards and brand boxes */
+.brand-card,
+.brand-box,
+.brand-item,
+.part-card,
+.product-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.brand-card:hover,
+.brand-box:hover,
+.brand-item:hover,
+.part-card:hover,
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* 6. Images zoom in slightly on hover */
+.brand-card img,
+.brand-box img,
+.brand-item img,
+.part-card img,
+.product-card img {
+  transition: transform 0.5s ease;
+}
+
+.brand-card:hover img,
+.brand-box:hover img,
+.brand-item:hover img,
+.part-card:hover img,
+.product-card:hover img {
+  transform: scale(1.04);
+}
+
+/* 7. Smooth button feedback */
+button,
+.btn {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+button:hover,
+.btn:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* 8. Animation keyframes */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 9. Respect visitors who prefer less movement */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger the contents of the brands section */
+.brands-section .brand-card,
+.brands-section .brand-box,
+.brands-section .brand-item {
+  transition:
+    opacity 0.6s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Keep animations from causing unwanted horizontal scrolling */
+body {
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   VAST TRACTORS SPARES
+   ADDITIONAL ANIMATION LAYER
+   Keep this at the VERY END of style.css
+   ========================================== */
+
+/* 1. Smooth navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* 2. Hero entrance animations */
+.hero-copy .hero-label,
+.hero-copy h1,
+.hero-copy .hero-text,
+.hero-copy .hero-actions,
+.hero-copy .hero-brands {
+  animation: vastFadeUp 0.75s ease-out both;
+}
+
+.hero-copy .hero-label {
+  animation-delay: 0.08s;
+}
+
+.hero-copy h1 {
+  animation-delay: 0.18s;
+}
+
+.hero-copy .hero-text {
+  animation-delay: 0.28s;
+}
+
+.hero-copy .hero-actions {
+  animation-delay: 0.38s;
+}
+
+.hero-copy .hero-brands {
+  animation-delay: 0.48s;
+}
+
+.hero-visual {
+  animation: vastFadeIn 1s ease-out 0.2s both;
+}
+
+.floating-card {
+  animation: vastFloatIn 0.8s ease-out 0.65s both;
+}
+
+/* 3. Gentle movement for the floating card */
+@keyframes vastFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+.floating-card {
+  animation:
+    vastFloatIn 0.8s ease-out 0.65s both,
+    vastFloat 4s ease-in-out 1.5s infinite;
+}
+
+/* 4. Parts cards */
+.part-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.13);
+}
+
+/* 5. Brand logos */
+.brands-logo-tile {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.brands-logo-tile img {
+  transition: transform 0.4s ease;
+}
+
+.brands-logo-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+}
+
+.brands-logo-tile:hover img {
+  transform: scale(1.05);
+}
+
+/* 6. Brand tractor image */
+.brands-tractor img {
+  transition: transform 0.6s ease;
+}
+
+.brands-tractor:hover img {
+  transform: scale(1.025);
+}
+
+/* 7. Form and contact card */
+.request-form,
+.contact-card {
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.request-form:focus-within {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+}
+
+/* 8. Shared scroll-reveal effect
+   Elements remain visible if JavaScript is unavailable. */
+body.motion-ready .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+body.motion-ready .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 9. Gentle stagger for brand tiles */
+.brands-logo-tile.reveal-on-scroll:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.brands-logo-tile.reveal-on-scroll:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.brands-logo-tile.reveal-on-scroll:nth-child(4) {
+  transition-delay: 0.08s;
+}
+
+.brands-logo-tile.reveal-on-scroll:nth-child(5) {
+  transition-delay: 0.16s;
+}
+
+.brands-logo-tile.reveal-on-scroll:nth-child(6) {
+  transition-delay: 0.24s;
+}
+
+/* 10. Animation keyframes */
+@keyframes vastFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vastFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes vastFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 11. Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  body.motion-ready .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================
+   VAST TRACTORS SPARES
+   SUBTLE ANIMATED HERO BACKGROUND
+   ===================================== */
+
+/* Keep the hero effects behind the content */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Slowly moving green glow */
+.hero .hero-glow {
+  pointer-events: none;
+  animation: heroGlowDrift 12s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* Soft movement in the background pattern */
+.hero .hero-pattern {
+  pointer-events: none;
+  animation: heroPatternDrift 20s ease-in-out infinite alternate;
+}
+
+/* Green glow movement */
+@keyframes heroGlowDrift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: translate3d(2%, 2%, 0) scale(1.06);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(-1%, 3%, 0) scale(1.02);
+    opacity: 0.82;
+  }
+}
+
+/* Slow, subtle background movement */
+@keyframes heroPatternDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+/* Stop background movement for visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-glow,
+  .hero .hero-pattern {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+/* ==========================================
+   VAST TRACTORS SPARES
+   HERO VISUAL REDESIGN — VERSION 1
+   Add to the bottom of style.css
+   ========================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  /* Layered forest-green background */
+  background:
+    radial-gradient(
+      ellipse at 80% 35%,
+      rgba(64, 116, 73, 0.32),
+      transparent 45%
+    ),
+    linear-gradient(
+      120deg,
+      #091710 0%,
+      #10291e 52%,
+      #193c2a 100%
+    );
+}
+
+/* Soft atmospheric green light */
+.hero .hero-glow {
+  position: absolute;
+  inset: -15%;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 70% 45%,
+      rgba(122, 166, 98, 0.19),
+      transparent 36%
+    );
+
+  animation: heroAtmosphere 16s ease-in-out infinite alternate;
+}
+
+/* Subtle texture behind the content */
+.hero .hero-pattern {
+  pointer-events: none;
+  opacity: 0.14;
+}
+
+/* Keep hero content above background layers */
+.hero .container,
+.hero .hero-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* More refined headline styling */
+.hero-copy h1 {
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.hero-copy h1 span {
+  color: #b8d69c;
+}
+
+/* Refined primary button */
+.hero .btn-primary {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.hero .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 30px rgba(0, 0, 0, 0.24);
+}
+
+/* Gentle atmospheric animation */
+@keyframes heroAtmosphere {
+  from {
+    transform: translate3d(-1%, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(2%, 2%, 0) scale(1.06);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-glow {
+    animation: none;
+  }
+}
+
+/* ==========================================
+   STEP 2: PREMIUM ABOUT SECTION
+   ========================================== */
+
+.about-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f4f0e5;
+  color: #193529;
+  padding-top: clamp(75px, 10vw, 130px);
+  padding-bottom: clamp(75px, 10vw, 130px);
+}
+
+/* Soft decorative background glow */
+.about-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  top: -150px;
+  right: -100px;
+  border-radius: 50%;
+  background: rgba(106, 143, 91, 0.09);
+  pointer-events: none;
+}
+
+/* Small section label */
+.about-section .eyebrow {
+  color: #55734b;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+/* Strong editorial heading */
+.about-section .about-heading h2 {
+  color: #193529;
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  max-width: 600px;
+  text-wrap: balance;
+}
+
+/* Refined green accent line */
+.about-section .about-line {
+  width: 74px;
+  height: 4px;
+  background: #648b50;
+  border-radius: 10px;
+  margin-top: 26px;
+}
+
+/* Comfortable paragraph styling */
+.about-section .about-content p {
+  color: #526056;
+  line-height: 1.9;
+}
+
+.about-section .about-content .about-intro {
+  color: #263e30;
+  font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+  line-height: 1.8;
+}
+
+/* Three information rows */
+.about-section .about-detail {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(25, 53, 41, 0.14);
+  transition:
+    padding-left 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.about-section .about-detail:hover {
+  padding-left: 8px;
+}
+
+.about-section .about-number {
+  color: #6c8c56;
+  font-weight: 700;
+}
+
+/* Keep text readable on smaller screens */
+@media (max-width: 700px) {
+  .about-section {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .about-section .about-heading h2 {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================
+   SPARE PARTS SECTION — SAFE DESIGN UPDATE
+   Preserves existing backgrounds and images
+   ========================================== */
+
+#parts {
+  position: relative;
+  padding-top: clamp(65px, 8vw, 105px);
+  padding-bottom: clamp(65px, 8vw, 105px);
+}
+
+/* Improve the section heading without replacing its background */
+
+#parts .section-heading {
+  margin-bottom: 40px;
+}
+
+#parts .section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+/* Refine cards without changing their backgrounds */
+
+#parts .part-card {
+  border-radius: 12px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#parts .part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Gentle image zoom on hover */
+
+#parts .part-card img {
+  transition: transform 0.45s ease;
+}
+
+#parts .part-card:hover img {
+  transform: scale(1.035);
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 700px) {
+  #parts {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  #parts .section-heading {
+    margin-bottom: 28px;
+  }
+
+  #parts .part-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  #parts .part-card,
+  #parts .part-card img {
+    transition: none;
+  }
+
+  #parts .part-card:hover,
+  #parts .part-card:hover img {
+    transform: none;
+  }
+}
+
+
