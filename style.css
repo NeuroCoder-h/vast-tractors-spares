@@ -203,122 +203,165 @@ h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
   .wheel-small { left: 55%; }
   .tractor-exhaust { left: 46%; }
 }
+
 /* =========================================
-   NEW HERO DESIGN
+   VAST TRACTORS SPARES — PREMIUM HERO
    ========================================= */
 
 .hero {
   position: relative;
-  overflow: hidden;
-  min-height: 620px;
+  isolation: isolate;
   display: flex;
   align-items: center;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(46, 155, 99, 0.22), transparent 30%),
-    linear-gradient(135deg, #07131d 0%, #0b1d29 55%, #102d25 100%);
+  min-height: min(780px, calc(100svh - 80px));
+  padding: 100px 0 86px;
+  overflow: hidden;
   color: #ffffff;
-}
-
-.hero-pattern {
-  position: absolute;
-  inset: 0;
-  opacity: 0.08;
+  background-color: #10291f;
   background-image:
-    linear-gradient(45deg, transparent 48%, #ffffff 49%, transparent 50%),
-    linear-gradient(-45deg, transparent 48%, #ffffff 49%, transparent 50%);
-  background-size: 70px 70px;
-  pointer-events: none;
+    linear-gradient(
+      90deg,
+      rgba(7, 22, 16, 0.94) 0%,
+      rgba(7, 22, 16, 0.83) 38%,
+      rgba(7, 22, 16, 0.43) 72%,
+      rgba(7, 22, 16, 0.30) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7, 22, 16, 0.40),
+      transparent 55%
+    ),
+    url("assets/tractor%20field.png.webp");
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
 }
 
+.hero-pattern,
 .hero-glow {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  right: 20%;
-  top: 10%;
-  border-radius: 50%;
-  background: rgba(54, 176, 111, 0.14);
-  filter: blur(80px);
-  pointer-events: none;
+  display: none;
 }
 
 .hero-grid {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 70px;
+  grid-template-columns: minmax(0, 760px);
   align-items: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  gap: 0;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-
-/* ---------- HERO TEXT ---------- */
-
 .hero-copy {
-  max-width: 650px;
+  max-width: 760px;
+  animation: vastHeroEnter 0.9s ease-out both;
 }
 
 .hero-label {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 22px;
-  padding: 8px 14px;
-  border: 1px solid rgba(139, 215, 170, 0.35);
-  border-radius: 50px;
-  background: rgba(139, 215, 170, 0.08);
-  color: #91d8ad;
-  font-size: 12px;
+  margin-bottom: 28px;
+  padding: 10px 15px;
+  border: 1px solid rgba(231, 190, 104, 0.48);
+  border-radius: 3px;
+  background: rgba(13, 35, 25, 0.62);
+  color: #f0cc80;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 1.6px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .hero-label-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
   border-radius: 50%;
-  background: #8bd5a9;
-  box-shadow: 0 0 0 5px rgba(139, 213, 169, 0.12);
+  background: #e7be68;
+  box-shadow: 0 0 12px rgba(231, 190, 104, 0.65);
 }
 
 .hero h1 {
+  max-width: 800px;
   margin: 0;
-  max-width: 680px;
-  font-size: clamp(52px, 6vw, 86px);
-  line-height: 0.95;
-  letter-spacing: -3px;
-  font-weight: 900;
+  color: #ffffff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(58px, 7.8vw, 108px);
+  font-weight: 700;
+  line-height: 0.91;
+  letter-spacing: -1.5px;
   text-transform: uppercase;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.22);
 }
 
 .hero h1 span {
   display: block;
-  color: #8bd5a9;
+  margin-top: 10px;
+  color: #e7be68;
 }
 
 .hero-text {
-  max-width: 600px;
+  max-width: 570px;
   margin: 28px 0 0;
-  color: #d4dee5;
-  font-size: 18px;
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 16px;
+  line-height: 1.85;
 }
-
-
-/* ---------- BUTTONS ---------- */
 
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
-  margin-top: 32px;
+  margin-top: 34px;
 }
 
 .hero-actions .btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 14px;
+  min-height: 54px;
+  padding: 0 24px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-actions .btn:hover {
+  transform: translateY(-3px);
+}
+
+.hero-actions .btn-primary {
+  border: 1px solid #e7be68;
+  background: #e7be68;
+  color: #17251c;
+}
+
+.hero-actions .btn-primary:hover {
+  border-color: #f4d99e;
+  background: #f4d99e;
+}
+
+.hero-actions .btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+.hero-actions .btn-outline:hover {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: #17251c;
 }
 
 .hero-actions .btn-primary span {
@@ -326,330 +369,147 @@ h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
   line-height: 1;
 }
 
-
-/* ---------- BRAND LIST ---------- */
-
 .hero-brands {
-  margin-top: 42px;
+  max-width: 650px;
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.23);
 }
 
 .hero-brands > span {
   display: block;
-  margin-bottom: 12px;
-  color: #91a5b2;
-  font-size: 11px;
+  margin-bottom: 14px;
+  color: #e7be68;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .brand-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px 20px;
 }
 
 .brand-list span {
-  padding: 7px 11px;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 5px;
-  background: rgba(255,255,255,0.04);
-  color: #e6edf1;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
-
-/* ---------- RIGHT VISUAL ---------- */
-
+/* The tractor photograph is now the hero background */
 .hero-visual {
-  position: relative;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero-visual img {
-  width: min(100%, 520px);
-  height: 500px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-  transform: rotate(2deg);
+  display: none;
 }
 
-.machine-card {
-  position: relative;
-  width: min(100%, 520px);
-  padding: 26px;
-  border: 1px solid rgba(255,255,255,0.55);
-  border-radius: 18px;
-  background: linear-gradient(145deg, #f7f6ee, #dfe5df);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.35),
-    0 10px 30px rgba(0,0,0,0.15);
-  transform: rotate(0deg);
+@keyframes vastHeroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.machine-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  color: #52636d;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 1.3px;
-}
-
-.tractor-illustration {
-  position: relative;
-  height: 250px;
-  margin: 20px 0;
-}
-
-
-/* ---------- TRACTOR ---------- */
-
-.tractor-body {
-  position: absolute;
-  left: 18%;
-  bottom: 58px;
-  width: 55%;
-  height: 90px;
-  border-radius: 12px 24px 12px 12px;
-  background: linear-gradient(145deg, #2c9960, #176d43);
-  box-shadow: inset 0 -10px 0 rgba(0,0,0,0.1);
-}
-
-.tractor-hood {
-  position: absolute;
-  right: 10%;
-  bottom: 95px;
-  width: 26%;
-  height: 65px;
-  border-radius: 12px;
-  background: #d84e43;
-}
-
-.tractor-cabin {
-  position: absolute;
-  left: 27%;
-  bottom: 145px;
-  width: 30%;
-  height: 85px;
-  border: 9px solid #0d1c27;
-  border-bottom-width: 5px;
-  border-radius: 5px;
-  background: rgba(116, 151, 166, 0.18);
-}
-
-.tractor-exhaust {
-  position: absolute;
-  left: 53%;
-  bottom: 215px;
-  width: 7px;
-  height: 65px;
-  border-radius: 10px;
-  background: #0d1c27;
-}
-
-.wheel {
-  position: absolute;
-  bottom: 28px;
-  border-radius: 50%;
-  border: 10px solid #30434e;
-  background: #091720;
-  box-shadow: inset 0 0 0 6px #6c7b83;
-}
-
-.wheel-large {
-  left: 18%;
-  width: 105px;
-  height: 105px;
-}
-
-.wheel-small {
-  right: 14%;
-  width: 72px;
-  height: 72px;
-  bottom: 40px;
-}
-
-
-/* ---------- MACHINE INFORMATION ---------- */
-
-.machine-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  padding-top: 18px;
-  border-top: 1px solid #bcc6c0;
-}
-
-.machine-info-item {
-  display: flex;
-  gap: 10px;
-}
-
-.info-number {
-  color: #278151;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.machine-info-item strong {
-  display: block;
-  color: #17252e;
-  font-size: 11px;
-}
-
-.machine-info-item small {
-  display: block;
-  margin-top: 4px;
-  color: #66747a;
-  font-size: 10px;
-}
-
-
-/* ---------- FLOATING CARD ---------- */
-
-.visual-badge {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  z-index: 4;
-  padding: 12px 16px;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #17252e;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
-
-.visual-badge strong {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 1px;
-}
-
-.visual-badge span {
-  display: block;
-  margin-top: 4px;
-  color: #278151;
-  font-size: 10px;
-}
-
-.floating-card {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 13px 17px;
-  border-radius: 10px;
-  background: #ffffff;
-  color: #16252e;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-}
-
-.floating-icon {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #278151;
-  color: #ffffff;
-  font-weight: 900;
-}
-
-.floating-card strong {
-  display: block;
-  font-size: 12px;
-}
-
-.floating-card small {
-  display: block;
-  margin-top: 3px;
-  color: #6a777d;
-  font-size: 10px;
-}
-
-
-/* ---------- MOBILE ---------- */
+/* ---------- TABLET ---------- */
 
 @media (max-width: 900px) {
+  .hero {
+    min-height: 680px;
+    padding: 85px 0 70px;
+    background-position: 58% center;
+  }
 
   .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 45px;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero-copy {
-    max-width: 100%;
-  }
-
-  .hero-visual {
-    min-height: 460px;
-  }
-
-  .machine-card {
-    transform: rotate(0);
-  }
-
-}
-
-@media (max-width: 600px) {
-
-  .hero {
-    min-height: auto;
-  }
-
-  .hero-grid {
-    padding-top: 55px;
-    padding-bottom: 55px;
+    max-width: 680px;
   }
 
   .hero h1 {
-    font-size: 48px;
-    letter-spacing: -2px;
+    font-size: clamp(58px, 9vw, 82px);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 650px;
+    min-height: min(760px, calc(100svh - 70px));
+    padding: 72px 0 55px;
+    background-position: 62% center;
+  }
+
+  .hero h1 {
+    font-size: clamp(49px, 13vw, 68px);
+    letter-spacing: -0.5px;
+    line-height: 0.95;
+  }
+
+  .hero-label {
+    margin-bottom: 23px;
+    padding: 9px 11px;
+    font-size: 9px;
+    letter-spacing: 1.4px;
   }
 
   .hero-text {
-    font-size: 16px;
+    max-width: 460px;
+    margin-top: 22px;
+    font-size: 15px;
+    line-height: 1.75;
   }
 
   .hero-actions {
     flex-direction: column;
+    align-items: stretch;
+    gap: 11px;
+    margin-top: 27px;
   }
 
   .hero-actions .btn {
-    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-brands {
+    margin-top: 34px;
+    padding-top: 18px;
   }
 
   .brand-list {
-    gap: 6px;
+    gap: 10px 15px;
   }
 
-  .machine-card {
-    padding: 18px;
+  .brand-list span {
+    font-size: 11px;
   }
-
-  .tractor-illustration {
-    transform: scale(0.9);
-    transform-origin: center;
-  }
-
-  .machine-info {
-    grid-template-columns: 1fr;
-  }
-
-  .floating-card {
-    right: 0;
-    bottom: 10px;
-  }
-
 }
+
+/* ---------- REDUCED MOTION ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy {
+    animation: none;
+  }
+
+  .hero-actions .btn {
+    transition: none;
+  }
+}
+
 /* ---------- HERO TRACTOR IMAGE ---------- */
 
 .tractor-illustration {
@@ -674,74 +534,76 @@ h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
   right: 10px;
   bottom: -55px;
 }
+
 /* =========================================
-   ABOUT SECTION IMPROVEMENT
-   ========================================= */
-
-#about {
-  background: #ffffff;
-}
-
-#about .two-col {
-  align-items: center;
-  gap: 80px;
-}
-
-#about .eyebrow {
-  margin-bottom: 16px;
-}
-
-#about h2 {
-  max-width: 620px;
-  font-size: clamp(44px, 5vw, 64px);
-  line-height: 0.95;
-  margin-bottom: 28px;
-  color: var(--navy);
-}
-
-#about .two-col p {
-  max-width: 620px;
-  margin-bottom: 18px;
-  color: #68747c;
-  font-size: 16px;
-  line-height: 1.75;
-}
-
-#about .two-col p strong {
-  color: var(--navy);
-}
-/* =========================================
-   ABOUT SECTION
+   VAST TRACTORS SPARES — ABOUT SECTION
    ========================================= */
 
 .about-section {
-  background: #ffffff;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 110px 0 115px;
+  color: #ffffff;
+ background:
+ linear-gradient(
+  rgba(3, 12, 8, 0.88),
+  rgba(3, 12, 8, 0.90)
+),
+  url("./assets/green%20tractor%20field.jpeg") center / cover no-repeat !important;
 }
 
+.about-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 32%;
+  height: 100%;
+  background: #e9e5d9;
+  clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 0.75;
+  pointer-events: none;
+  display: none;
+}
 .about-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 90px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(45px, 8vw, 115px);
   align-items: start;
 }
-
 .about-heading {
   position: relative;
+  padding-top: 10px;
+}
+
+.about-section .eyebrow {
+  margin: 0 0 25px;
+ color: #ffe0a0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.5;
 }
 
 .about-heading h2 {
-  max-width: 560px;
-  margin-bottom: 25px;
-  color: var(--navy);
-  font-size: clamp(44px, 5vw, 64px);
-  line-height: 0.95;
+  max-width: 520px;
+  margin: 0;
+  color: #ffffff;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(48px, 5.2vw, 72px);
+  font-weight: 700;
+  line-height: 0.99;
+  letter-spacing: -0.7px;
+  text-transform: uppercase;
 }
 
 .about-line {
-  width: 70px;
-  height: 4px;
-  background: var(--green);
-  margin-top: 25px;
+  width: 76px;
+  height: 5px;
+  margin-top: 30px;
+  background: #c59b4b;
 }
 
 .about-content {
@@ -749,79 +611,200 @@ h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
 }
 
 .about-content p {
-  max-width: 620px;
   margin: 0 0 20px;
-  color: #69737d;
-  font-size: 16px;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-content .about-intro {
+  margin-bottom: 24px;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 500;
   line-height: 1.75;
 }
 
-.about-content p strong {
-  color: var(--navy);
-}
-
-.about-intro {
-  font-size: 18px !important;
-  color: #3d4b55 !important;
+.about-content strong {
+  color: #ffffff;
+  font-weight: 750;
 }
 
 .about-details {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-top: 32px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 35px;
+  border-top: 1px solid #d7d3c7;
 }
 
 .about-detail {
-  padding: 18px 14px;
-  border-top: 3px solid var(--green);
-  background: #f5f7f4;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 88px;
+  padding: 19px 15px 19px 5px;
+  border-bottom: 1px solid #d7d3c7;
+  transition:
+    background-color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.about-detail:hover {
+  padding-left: 14px;
+  background: rgba(255, 255, 255, 0.58);
 }
 
 .about-number {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--green);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 1px;
+  display: flex;
+  flex: 0 0 46px;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #ffe0a0;
+  color: #ffe0a0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.about-detail:hover .about-number {
+  border-color: #1e5136;
+  background: #1e5136;
+  color: #ffffff;
 }
 
 .about-detail strong {
   display: block;
-  color: var(--navy);
+  color: #ffffff;
   font-size: 11px;
-  letter-spacing: 0.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
 }
 
 .about-detail small {
   display: block;
-  margin-top: 5px;
-  color: #748078;
-  font-size: 10px;
-  line-height: 1.5;
+  margin-top: 7px;
+  color: #f4f6f3;
+  font-size: 13px;
+  line-height: 1.6;
 }
+
+/* ---------- TABLET ---------- */
+
 @media (max-width: 900px) {
+  .about-section {
+    padding: 85px 0 90px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 38px;
+  }
+
+  .about-heading h2 {
+    font-size: clamp(45px, 6vw, 62px);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 650px) {
+  .about-section {
+    padding: 68px 0 72px;
+    padding: 25px 20px;
+    gap: 28px;
+  }
+
+  .about-section::before {
+    width: 55%;
+    opacity: 0.45;
+  }
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 34px;
+  }
+
+  .about-heading {
+    padding-top: 0;
+  }
+
+  .about-section .eyebrow {
+    margin-bottom: 18px;
+    font-size: 10px;
+  }
+
+  .about-heading h2 {
+    max-width: 460px;
+    font-size: clamp(45px, 12vw, 62px);
+    line-height: 0.98;
+  }
+
+  .about-line {
+    width: 60px;
+    margin-top: 23px;
+  }
+
+  .about-content {
+    padding-top: 0;
+  }
+
+  .about-content .about-intro {
+    font-size: 17px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+    line-height: 1.8;
   }
 
   .about-details {
-    grid-template-columns: 1fr;
+    margin-top: 27px;
   }
 
+  .about-detail {
+    min-height: 78px;
+    gap: 16px;
+    padding-right: 4px;
+  }
+
+  .about-number {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .about-detail small {
+    font-size: 12px;
+  }
 }
+
+/* ---------- ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-detail,
+  .about-number {
+    transition: none;
+  }
+}
+
 /* =========================================
    SPARE PARTS SECTION IMPROVEMENT
    ========================================= */
-
 #parts {
-  background:
-    linear-gradient(135deg, #07131d 0%, #0b1d29 55%, #102d25 100%);
+  background: linear-gradient(
+    135deg,
+    #343b32 0%,
+    #41483b 55%,
+    #4a4c3e 100%
+  );
 }
-
 #parts .section-heading {
   margin-bottom: 48px;
 }
@@ -1372,7 +1355,7 @@ h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
   }
 }
 /* =========================================================
-   WHY VAST TRACTORS SPARES - ORIGINAL STYLE
+   WHY VAST TRACTORS SPARES
    ========================================================= */
 
 .why-section {
@@ -1499,21 +1482,6 @@ h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
   object-position: center;
   display: block;
 }
-
-/* CLICKABLE SPARE PARTS CARDS */
-#parts .part-card {
-  cursor: pointer;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-#parts .part-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
-}
-
 /* GALLERY BACKDROP */
 .parts-gallery-modal {
   display: none;
@@ -1626,89 +1594,6 @@ h2 { font-size: clamp(42px, 5vw, 62px); line-height: .95; margin-bottom: 22px; }
   transform: translateY(-5px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
 }
-
-/* GALLERY WINDOW */
-.parts-gallery-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  padding: 24px;
-  background: rgba(5, 15, 12, 0.9);
-  overflow-y: auto;
-}
-
-.parts-gallery-modal.is-open {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.parts-gallery-panel {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: auto;
-  padding: 32px;
-  border-radius: 12px;
-  background: #f7f8f5;
-}
-
-.parts-gallery-panel h2 {
-  color: #17251f;
-  margin: 12px 0 8px;
-}
-
-.parts-gallery-panel p {
-  color: #53635a;
-}
-
-.gallery-close {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  border: 0;
-  background: transparent;
-  color: #17251f;
-  font-size: 36px;
-  cursor: pointer;
-}
-
-.parts-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.parts-gallery-grid img {
-  display: block;
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  padding: 8px;
-  border-radius: 8px;
-  background: #fff;
-}
-
-.parts-gallery-grid img.image-error {
-  display: none;
-}
-
-@media (max-width: 650px) {
-  .parts-gallery-panel {
-    padding: 26px 16px;
-  }
-
-  .parts-gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .parts-gallery-grid img {
-    height: 150px;
-  }
-}
-
 /* =========================================
    VAST TRACTORS SPARES - PREMIUM PART CARDS
    ========================================= */
@@ -2430,7 +2315,6 @@ button:hover,
 body {
   overflow-x: hidden;
 }
-
 /* ==========================================
    VAST TRACTORS SPARES
    ADDITIONAL ANIMATION LAYER
@@ -2507,7 +2391,6 @@ section[id] {
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
-
 .part-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.13);
@@ -2650,12 +2533,10 @@ body.motion-ready .reveal-on-scroll.is-visible {
     transform: none;
   }
 }
-
 /* =====================================
    VAST TRACTORS SPARES
    SUBTLE ANIMATED HERO BACKGROUND
    ===================================== */
-
 /* Keep the hero effects behind the content */
 .hero {
   position: relative;
@@ -2693,18 +2574,15 @@ body.motion-ready .reveal-on-scroll.is-visible {
     opacity: 0.82;
   }
 }
-
 /* Slow, subtle background movement */
 @keyframes heroPatternDrift {
   from {
     transform: translate3d(0, 0, 0);
   }
-
   to {
     transform: translate3d(0, -10px, 0);
   }
 }
-
 /* Stop background movement for visitors who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   .hero .hero-glow,
@@ -2713,109 +2591,9 @@ body.motion-ready .reveal-on-scroll.is-visible {
     will-change: auto;
   }
 }
-
-/* ==========================================
-   VAST TRACTORS SPARES
-   HERO VISUAL REDESIGN — VERSION 1
-   Add to the bottom of style.css
-   ========================================== */
-
-.hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
-  /* Layered forest-green background */
-  background:
-    radial-gradient(
-      ellipse at 80% 35%,
-      rgba(64, 116, 73, 0.32),
-      transparent 45%
-    ),
-    linear-gradient(
-      120deg,
-      #091710 0%,
-      #10291e 52%,
-      #193c2a 100%
-    );
-}
-
-/* Soft atmospheric green light */
-.hero .hero-glow {
-  position: absolute;
-  inset: -15%;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle at 70% 45%,
-      rgba(122, 166, 98, 0.19),
-      transparent 36%
-    );
-
-  animation: heroAtmosphere 16s ease-in-out infinite alternate;
-}
-
-/* Subtle texture behind the content */
-.hero .hero-pattern {
-  pointer-events: none;
-  opacity: 0.14;
-}
-
-/* Keep hero content above background layers */
-.hero .container,
-.hero .hero-grid {
-  position: relative;
-  z-index: 1;
-}
-
-/* More refined headline styling */
-.hero-copy h1 {
-  letter-spacing: -0.045em;
-  line-height: 1.04;
-  text-wrap: balance;
-}
-
-.hero-copy h1 span {
-  color: #b8d69c;
-}
-
-/* Refined primary button */
-.hero .btn-primary {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.hero .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 13px 30px rgba(0, 0, 0, 0.24);
-}
-
-/* Gentle atmospheric animation */
-@keyframes heroAtmosphere {
-  from {
-    transform: translate3d(-1%, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(2%, 2%, 0) scale(1.06);
-  }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .hero .hero-glow {
-    animation: none;
-  }
-}
-
 /* ==========================================
    STEP 2: PREMIUM ABOUT SECTION
    ========================================== */
-
 .about-section {
   position: relative;
   isolation: isolate;
@@ -2825,7 +2603,6 @@ body.motion-ready .reveal-on-scroll.is-visible {
   padding-top: clamp(75px, 10vw, 130px);
   padding-bottom: clamp(75px, 10vw, 130px);
 }
-
 /* Soft decorative background glow */
 .about-section::before {
   content: "";
@@ -2839,14 +2616,12 @@ body.motion-ready .reveal-on-scroll.is-visible {
   background: rgba(106, 143, 91, 0.09);
   pointer-events: none;
 }
-
 /* Small section label */
 .about-section .eyebrow {
   color: #55734b;
   letter-spacing: 0.14em;
   font-weight: 700;
 }
-
 /* Strong editorial heading */
 .about-section .about-heading h2 {
   color: #193529;
@@ -2856,7 +2631,6 @@ body.motion-ready .reveal-on-scroll.is-visible {
   max-width: 600px;
   text-wrap: balance;
 }
-
 /* Refined green accent line */
 .about-section .about-line {
   width: 74px;
@@ -2865,19 +2639,16 @@ body.motion-ready .reveal-on-scroll.is-visible {
   border-radius: 10px;
   margin-top: 26px;
 }
-
 /* Comfortable paragraph styling */
 .about-section .about-content p {
   color: #526056;
   line-height: 1.9;
 }
-
 .about-section .about-content .about-intro {
   color: #263e30;
   font-size: clamp(1.08rem, 1.5vw, 1.25rem);
   line-height: 1.8;
 }
-
 /* Three information rows */
 .about-section .about-detail {
   padding: 18px 0;
@@ -2886,16 +2657,13 @@ body.motion-ready .reveal-on-scroll.is-visible {
     padding-left 0.3s ease,
     background-color 0.3s ease;
 }
-
 .about-section .about-detail:hover {
   padding-left: 8px;
 }
-
 .about-section .about-number {
   color: #6c8c56;
   font-weight: 700;
 }
-
 /* Keep text readable on smaller screens */
 @media (max-width: 700px) {
   .about-section {
@@ -2907,24 +2675,19 @@ body.motion-ready .reveal-on-scroll.is-visible {
     max-width: 100%;
   }
 }
-
 /* ==========================================
    SPARE PARTS SECTION — SAFE DESIGN UPDATE
    Preserves existing backgrounds and images
    ========================================== */
-
 #parts {
   position: relative;
   padding-top: clamp(65px, 8vw, 105px);
   padding-bottom: clamp(65px, 8vw, 105px);
 }
-
 /* Improve the section heading without replacing its background */
-
 #parts .section-heading {
   margin-bottom: 40px;
 }
-
 #parts .section-heading h2 {
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.12;
@@ -2940,51 +2703,380 @@ body.motion-ready .reveal-on-scroll.is-visible {
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
-
 #parts .part-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
 }
-
 /* Gentle image zoom on hover */
-
 #parts .part-card img {
   transition: transform 0.45s ease;
 }
-
 #parts .part-card:hover img {
   transform: scale(1.035);
 }
 
 /* Mobile adjustments */
-
 @media (max-width: 700px) {
   #parts {
     padding-top: 55px;
     padding-bottom: 55px;
   }
-
   #parts .section-heading {
     margin-bottom: 28px;
   }
-
   #parts .part-card:hover {
     transform: translateY(-2px);
   }
 }
-
 /* Respect reduced-motion preferences */
-
 @media (prefers-reduced-motion: reduce) {
   #parts .part-card,
   #parts .part-card img {
     transition: none;
   }
-
   #parts .part-card:hover,
   #parts .part-card:hover img {
     transform: none;
   }
 }
+/* ==========================================
+   VAST TRACTORS SPARES
+   PREMIUM LOCATION + CONTACT DESIGN
+   ========================================== */
 
+/* 1. REQUEST SECTION — WARM STONE & MUTED OLIVE */
+.request-section {
+  position: relative;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(48, 53, 42, 0.86),
+      rgba(82, 88, 65, 0.78)
+    ),
+    url("./assets/green%20tractor%20field.jpeg")
+      center center / cover no-repeat;
+}
+/* LOCATION SECTION */
+.location-section {
+  padding: clamp(65px, 8vw, 100px) 0;
+  background: #f4f0e5;
+  color: #193529;
+}
+.location-heading {
+  max-width: 680px;
+  margin-bottom: 35px;
+}
+.location-heading .eyebrow {
+  color: #648b50;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.location-heading h2 {
+  margin: 10px 0 16px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+.location-heading > p:last-child {
+  color: #526056;
+  line-height: 1.8;
+}
+.location-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.6fr);
+  gap: 25px;
+  align-items: stretch;
+}
+.location-info {
+  padding: 30px;
+  border-radius: 12px;
+  background: #193529;
+  color: #f5f3ed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.location-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+.location-info h3 {
+  margin: 0 0 12px;
+}
+.location-info p {
+  color: rgba(245, 243, 237, 0.8);
+  line-height: 1.8;
+}
+.location-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 13px 20px;
+  border-radius: 5px;
+  background: #b8d69c;
+  color: #193529;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.25s ease;
+}
+.location-button:hover {
+  transform: translateY(-3px);
+}
+.location-map {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #e5e5e5;
+  box-shadow: 0 12px 30px rgba(25, 53, 41, 0.12);
+}
+.location-map iframe {
+  display: block;
+  width: 100%;
+  min-height: 400px;
+}
+@media (max-width: 700px) {
+  .location-layout {
+    grid-template-columns: 1fr;
+  }
+  .location-info {
+    padding: 25px;
+  }
+  .location-map iframe {
+    min-height: 320px;
+  }
+}
 
+/* 2. LOCATION SECTION — rich agricultural green */
+.location-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #f5f3ed;
+  background:
+    linear-gradient(
+      110deg,
+      rgba(5, 22, 14, 0.96) 0%,
+      rgba(12, 43, 28, 0.91) 55%,
+      rgba(21, 57, 36, 0.94) 100%
+    ),
+    url("assets/tractor%20field.png.webp") center 55% / cover no-repeat;
+  padding: clamp(75px, 9vw, 115px) 0;
+}
+.location-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 390px;
+  height: 390px;
+  top: -180px;
+  right: -100px;
+  border: 1px solid rgba(184, 214, 156, 0.2);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 45px rgba(184, 214, 156, 0.035),
+    0 0 0 90px rgba(184, 214, 156, 0.025);
+  pointer-events: none;
+}
+.location-section .location-heading {
+  position: relative;
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+.location-section .location-heading .eyebrow {
+  color: #b8d69c;
+  font-size: 0.78rem;
+  letter-spacing: 0.17em;
+  font-weight: 700;
+}
+.location-section .location-heading h2 {
+  color: #f8f5ec;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  max-width: 650px;
+}
+.location-section .location-heading > p:last-child {
+  max-width: 580px;
+  color: rgba(248, 245, 236, 0.78);
+  line-height: 1.85;
+}
+/* 3. VISIT OUR BUSINESS CARD */
+.location-section .location-info {
+  position: relative;
+  overflow: hidden;
+  align-self: stretch;
+  padding: clamp(26px, 3vw, 38px);
+  border: 1px solid rgba(184, 214, 156, 0.3);
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      150deg,
+      #254d35 0%,
+      #173b28 58%,
+      #0c291b 100%
+    );
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+}
+.location-section .location-info::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -65px;
+  bottom: -85px;
+  border: 1px solid rgba(184, 214, 156, 0.23);
+  border-radius: 50%;
+  box-shadow: 0 0 0 25px rgba(184, 214, 156, 0.035);
+  pointer-events: none;
+}
+.location-section .location-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  background: #b8d69c;
+  color: #193529;
+  font-size: 1.7rem;
+}
+.location-section .location-info h3 {
+  margin-top: 22px;
+  color: #f8f5ec;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.location-section .location-info p {
+  color: rgba(248, 245, 236, 0.8);
+  line-height: 1.9;
+}
+/* Directions button */
+.location-section .location-button {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: 1px solid #c6dfa9;
+  border-radius: 5px;
+  background: #c6dfa9;
+  color: #173523;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.location-section .location-button:hover {
+  transform: translateY(-3px);
+  background: #d9eac7;
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.2);
+}
+/* 4. MAP FRAME */
+.location-section .location-map {
+  border: 1px solid rgba(184, 214, 156, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+  background: #e8eddf;
+}
+.location-section .location-map iframe {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+}
+/* 5. CONTACT SECTION — warm stone finish */
+.contact-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(238, 234, 220, 0.96) 0%,
+      rgba(222, 225, 207, 0.92) 100%
+    ),
+    url("./assets/green%20tractor%20field.jpeg")
+      center center / cover no-repeat;
+}
+    linear-gradient(135deg, #091710 0%, #102b1e 60%, #193c2a 100%);
+.contact-section .container {
+  position: relative;
+  z-index: 1;
+}
+.contact-section .eyebrow {
+  color: #65734f;
+}
+.contact-section h2 {
+  color: #30382e;
+}
+.contact-section p {
+  line-height: 1.8;
+}
+/* 6. MOBILE LAYOUT */
+@media (max-width: 700px) {
+  .location-section {
+    padding-top: 65px;
+    padding-bottom: 65px;
+    background-position: center, 60% center;
+  }
+  .location-section .location-heading h2 {
+    font-size: clamp(2.1rem, 9vw, 3rem);
+  }
+  .location-section .location-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .location-section .location-map iframe {
+    min-height: 320px;
+  }
+  .location-section .location-info {
+    padding: 26px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .location-section .location-button {
+    transition: none;
+  }
+  .location-section .location-button:hover {
+    transform: none;
+  }
+}
+
+/* ABOUT SECTION — TEXT COLORS ONLY */
+.about-section .eyebrow {
+  color: #FFD166 !important;
+}
+
+.about-section .about-heading h2 {
+  color: #FFFFFF !important;
+}
+
+.about-section .about-content p,
+.about-section .about-content .about-intro {
+  color: #FFFFFF !important;
+}
+
+.about-section .about-content strong {
+  color: #FFE0A0 !important;
+}
+
+.about-section .about-detail strong {
+  color: #FFFFFF !important;
+}
+
+.about-section .about-detail small {
+  color: #F2F5F2 !important;
+}
+
+.about-section .about-number {
+  color: #FFD166 !important;
+  border-color: #FFD166 !important;
+}
+/* SPARE PARTS SECTION 
+
+#parts {
+  background: #A8B5A0;
+}
